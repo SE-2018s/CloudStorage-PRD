@@ -255,7 +255,7 @@ Summary of 性能需求
 \section{外部接口需求}
 \subsection{用户接口}
 
-用户使用浏览器访问给定的域名来访问云盘，在不同size的屏幕上自适应，支持Chrome，Edge，Firefox等主流浏览器。
+用户使用浏览器访问给定的域名来访问云盘，在不同分辨率的屏幕上自适应，支持Chrome，Edge，Firefox等主流浏览器。
 
 对计算机基本使用较为熟悉的用户可以在不需要他人教学的情况下，10分钟能自主学会使用本软件
 
@@ -266,19 +266,6 @@ Summary of 性能需求
 在这里插入软件界面示意图
 
 \subsection{软件接口}
-<The interface with other system/modules/projects should be explained in detail. >
-
-详细描述与其他系统 /模块 /项目之间的接口
-
-Describes how to use the other (required) software products. (such as data management system, operation system, or algorithm tools package), and the interfaces to other application systems (such as interfaces between the protocol process system and the database management system )
-For each required software product, following information should be provided:
-A. Name
-B. Mnemonic symbol
-C. Version number
-D. Source
-For each interface, this section should:
-A. Discuss the objective of the required software.
-B. Define the interfaces by content and format of message/function. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
 
 在此应描述如何使用其它（必需的）软件产品（例如，数据管理系统，操作系统，或算法工具包），以及与其它应用系统的接口（例如，协议处理系统和数据库管理系统之间的接口）。
 
@@ -294,24 +281,74 @@ A .	讨论与本软件产品相关的接口软件的目的。
 
 B.	按消息/函数内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
 
+\subsubsection{服务器操作系统}
+
+名字：Debian Linux
+
+助记符：Debian
+
+版本号：9
+
+来源：开源社区
+
+目的：服务器端的运行环境，方便开发人员进行开发、调试
+
+\subsubsection{数据库系统}
+
+名字：MySQL Server
+
+助记符：MySQL
+
+版本号：5.7
+
+来源：包管理器
+
+目的：提供存储各个用户信息的数据库系统
+
+\subsubsection{分布式文件系统}
+
+名字：Ceph
+
+助记符：Ceph
+
+版本号：12
+
+来源：官网
+
+目的：提供底层分布式的文件系统并实现高可用
+
+\subsubsection{HTTP服务器}
+
+名字：
+
+助记符：
+
+版本号
+
+来源
+
+\subsubsection{后端框架语言}
+
+名字：Python/Java
+
+助记符：Python/Java
+
+版本号：3.6
+
+来源：包管理器 
+
 \subsection{硬件接口}
-<The interface with other hardware components should be explained in detail. >
 
-详细描述与硬件的接口
+1. 服务器架构：x86/64的服务器主机集群或云主机
 
-Describes the logical features of the interface between the software and hardware components, including the equipment supported and how the equipment and protocol is supported. 
+2. 服务器必须有1Gbps互联网接入
 
-Defines the interfaces according to the content and format of the software/hardware protocol. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
-
-在此描述软件产品和系统硬件组件之间接口的逻辑特征，也包括支持哪些设备、怎样支持这些设备和协议等。
- 
-按软/硬件协议内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
+3. 服务器必须有100IOPS以上的磁盘（阵列）
 
 \subsection{通讯接口}
-<This should specify the various interfaces to communications such as local network protocols, etc.>
 
-详细描述通讯接口，如本地网络协议等。
+与浏览器通讯：使用HTTPS协议
 
-Defines the interfaces according to the content and format of the message/function. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
+参见 RFC2616、RFC2818、RFC2324 标准
 
-按消息/函数内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
+
