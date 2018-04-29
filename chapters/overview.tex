@@ -1,0 +1,61 @@
+\chapter{总体概述}
+
+\section{软件概述}
+\subsection{项目介绍}
+云存储，是近几年在云计算的发展潮流之中诞生的，一项新兴的网络存储技术。云存储集成了网络技术和分布式文件系统等功能，是通过对不同的物理存储设备进行虚拟化映射，以形成逻辑层面统一的大存储空间的应用。
+
+云盘系统，就是利用云存储技术，面向广大的有存储需求的客户，提供数据文件存储服务的第三方托管系统。
+
+我们的xyz云盘系统，是基于分布式文件系统来设计和开发的云盘系统，是一个独立的项目。它的命名来自三位开发者名字的首字母（Xiaoniu，Yongzhou，Zewen），表明这将是由三位开发者开发的完全不同于其他云盘系统的新兴的云盘系统。
+
+\subsection{产品环境介绍}
+Describes the whole environment that is composed of this software and other products / projects.
+\begin{itemize}
+\item If this software is independent or fully self-contained, state it here.
+\begin{itemize}
+\item describe the function of each component of that larger system/project, and identify the interfaces.
+\item determine the main external interfaces of this software.（ Note: Do not describe the interfaces in detail; the detailed description will be provided in other part of the SRS document.）
+\item describe related hardware of the product and peripheral equipment.（ Note: This is only  a general description, not in detail.）
+\end{itemize}
+\end{itemize}
+
+It is very helpful to describe the main components, interconnection and external interfaces of the larger system/project by Block Diagram. This part should not provide a detailed design solution, or detailed design constraint for the solution (the detailed design constraint will be described in the section of specific requirement). This section is the basis of the design constraints.
+
+描述的是本产品与其它产品或项目所组成的整体环境。
+
+1.如果本产品是独立的并完全自我包含，在此说明这一点。
+
+2.如果SRS定义的产品是更大的系统或项目的组件（此种情形经常发生），那么应：
+
+	A. 描述此大系统或项目每个组件的功能，并且标识接口。
+
+	B.  确定本软件产品主要外部接口。（ 注意：在此部分并不进行这些接口的详细描述；对这些接口的详细描述在SRS的其它 部分提供。）
+    
+    C. 描述相关产品硬件和所使用的外部设备。（  注意：  这只是概述性描述。）
+
+通过方块图来描述大系统或项目的主要组件，互连性以及外部接口将是非常有帮助的。本部分不应提出一个具体的设计解决方案或对解决方案的具体设计约束（具体设计约束将在具体需求章节中描述）。本部分内容是产生设计约束的基础。
+
+\section{软件功能}
+Summarizes the major functions that must be implemented through the software, and the functions to be implemented through user operation. Details will be provided in the Specific Requirement, so only a summary (such as a directory list) is needed here. The functions should be organized to make them understandable to the readers, and be appropriate for subsequent design and tests. Diagrams like top-level data flow diagram or object class diagram are recommended to illustrate the relationships among the major requirement groups 
+
+Sometimes, this section can directly refer to the superior specification of the software that allocate the specific requirements to this software ( if existed ).
+The specific requirements should not be described in this section. But this section is the basis of the specific requirements.
+
+概述软件的必须实现的和通过用户操作实现的主要功能。这里只需要进行简要描述（例如目录列表），详细描述在详细需求部分描述。对需求功能进行组织，以便于读者理解，并能指导后续的设计和测试。可以用图表来表示主要需求群组之间的关系，例如：高层的数据流图，面向对象的分析等。
+
+有时此部分所要求的功能概述可以从分配具体功能给此软件产品的更高层规格（如果存在的话）直接引用。
+
+本节不应描述具体需求。但本节内容是具体需求章节的基础。
+
+\section{用户特征}
+List down the basic required characteristics of the user or operator of the system. E.g. the experience, Skill level, required role etc., 
+This part should not describe the specific requirements, instead, it provides the basis for the specific requirements.
+
+列出对用户或系统操作者的要求，如：经验，能力，角色等。
+
+本节不应描述具体需求。但本节内容是具体需求章节的基础。
+
+\section{假设和依赖关系}
+List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan). 
+
+列出可能影响SRS中需求的所有的假设因素（与已知事实相对而言），包括准备使用的第三方或商业组件，操作和开发环境的问题约束等。如果上述假设不正确、没有被告知或者改变了都将对项目产生影响。列出项目对外部条件的依赖，例如重用其他项目的模块等。如果在其他文档（例如项目计划或范围文档等）里已经描述了，在这里可以不用描述。

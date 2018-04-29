@@ -1,0 +1,216 @@
+\chapter{具体需求}
+<The following sections must be repeated for each requirement. >
+
+在每一条需求描述中重复下列部分
+\section{功能需求}
+This section describes how the input of the software is translated to the output. It describes the essential action the software must perform.
+
+For each kind of function, or each independent function in some cases, the requirements of input, process and output must be described, which are usually organized with the following four subsections:
+
+本子章节应描述软件产品的输入怎样被转换成输出。它描述了软件必须执行的基本动作。 
+
+对每一类功能或有时对每一个单独的功能，必须描述输入、处理、输出方面的需求。这些通常以下面四个子段落来组织：
+\subsection{功能需求1}
+Please don't use "Functional Requirement(1)" as the title of the functional requirement. Name the functional requirements with a few simple words and a requirement ID.  For example:
+
+R.INTF.CALC.001 Calculating expression
+
+R.INTF.CALC.002 Print
+
+Naming the requirement ID shall follow the Software Requirements Management Procedure (REP01)
+
+用需求编号加上简短词汇做为功能需求名，不要用“功能需求（1）”作为功能名，例如：R.INTF.CALC.001 计算表达式
+
+R.INTF.CALC.002 打印
+
+需求编号规则按照软件需求管理规程(REP01)进行
+\subsubsection{介绍}
+<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature.  Include how the project should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use "TBD" as a placeholder to indicate when necessary information is not yet available. >
+
+逐条列出与本特性相关的功能需求。包括项目如何响应预期的错误输入，非法条件和无效输入。需求应该简明，完整，不含糊，可验证，必要的。 当需要的信息不确定的时候使用“待定”。
+\subsubsection{输入}
+This section consists of:
+A. Detailed description of all input data of the function, including:
+Source of input
+Quantify
+Measurement units
+Timing requirements
+Valid input range that contains the precision and tolerance
+B. Reference of interface specification or interface control document that are provided in proper place.
+
+本子段落应包含下列内容：
+
+A. 对该功能所有输入数据的详细描述，包括：
+
+		输入来源
+		数量
+		度量单位
+		时间要求
+		包含精度和容忍度的有效输入范围
+		
+B. 在适当的地方提供的对接口规格或接口控制文档的参考。
+\subsubsection{处理}
+Describes all the operations on the input data, and the process to get the output data, including the following specifications:
+A. Verification of input data
+B. Exact order of the operations, including the time sequene of each event.
+C. Response to exception, such as:
+		 Overflow
+		Communication failure
+		Error process
+D. Any method used to transfer the input data to the output data. (such as equation,mathematic algorithm and logical operation)
+For example.
+		The formula to calculate the income tax in a pay roll.
+		the weather model used for weather forecast
+E. Verification of output data.
+本子段落应描述对输入数据所执行的所有操作和如何获得输出的过程。这包括下列规格：
+
+A. 输入数据的有效性检测。
+
+B. 操作的确切次序，包括各事件的时序。
+
+C. 对异常情况的回应，例如：
+		溢出
+		通信失败
+		错误处理
+D. 用于把系统输入转换到相应输出的任何方法（诸如方程式，数学算法，逻辑操作）。例如，这可能描述下列方面：
+		对工资单里代扣所得税的计算公式。
+		用于气象预报的气象模型。
+		
+E.	对输出数据的有效性检测。
+\subsubsection{输出}
+This section should include:
+A. The detailed description of output data of the function, including:
+		Target to output to (Such as a printer or a file)
+		Quantity
+		Measurement units
+		Time sequence
+		Valid output range including the precision and tolerance
+		Process of the invalid value.
+		Error message.
+B. Reference of interface specification or interface control document that are provided in proper place.
+For the systems with their requirements focused on the input/output actions, all the important input/output actions and the time sequences of the input/output pairs should be described in the SRS. In a system that inputs and actions are memorized as the basis for the reactions to be taken, the timing sequence for the input/output pairs must be available here. This kind of functional action is similar to a status machine.  
+本子段落应包含：
+
+A. 对该功能所有输出数据的详细描述，这个描述包括：
+		输出的到何处（如打印机，文件）
+		数量
+		度量单位
+		时序
+		包含精确度和容忍度的有效输出范围
+		对非法值的处理
+		错误消息
+		
+B. 在适当的地方提供对接口规格或接口控制文档的参考。
+
+此外，对那些需求集中在输入/输出行为的系统，SRS应描述所有重要的输入/输出行为及输入输出对的次序。对一个需要记忆其行为以根据输入和过去的行为进行反应的系统，输入输出对的次序是要求的；这种功能行为就类似于有限状态机。
+\section{性能需求}
+<If there are performance requirements, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specifies the timing relationships for real time systems. Such requirements should be made as specific as possible. >
+
+如果有性能方面的需求，在这里列出并解释他们的原理。以帮助开发者理解意图以做出正确的设计选择。在实时系统中的时序关系。保证需求尽可能的详细而精确。
+\subsection{性能需求1}
+Describes the statically and dynamically quantized requirements on the software (or the interaction between user and the software)
+Static quantized requirement could include:
+A. Maximum number of terminal supported.
+B. Maximum number of users that can use the software at the same time.
+C. Maximum number of files and records to be processed
+D. Maximum size of  tables and files
+Dynamically quantized requirements could include:
+A. Specific duration of normal value and peak value of workload (e.g., one hour)
+B. Number of event and task and data volume to be processed 
+All these requirements should be described by measurable term, for example, saying "95% of the events should be processed in 1 second", instead of saying "the operator need not wait for the business to complete."
+Note: The quantized constraint of a detailed requirement should be described in the subsection of the detailed requirement.
+本子章节应从整体上描述静态和动态的量化的对软件（或人与软件交互）的需求。
+
+静态的量化需求可能包括：
+
+A. 支持的终端数目。
+
+B. 支持的同时使用的用户数目。
+
+C.处理的文件和记录的数目。
+
+D.表和文件的大小。
+
+动态的量化需求可能包括:
+
+A. 在正常和峰值工作量条件下特定时间段（如一小时）
+
+B. 处理的事务和任务的数目以及数据量。
+
+所有的这些需求应以可测量的术语进行描述，例如所有的操作应在1秒内被处理完成，而不是描述成操作员不必等待操作的完成。
+
+注意： 用于一个具体功能的量化限制通常在该功能的处理子章节中描述。
+\section{外部接口需求}
+\subsection{用户接口}
+<The interface of the system with the User and vice versa should be explained in detail. >
+
+详细描述系统与用户之间的接口
+
+This section should include:
+A. Features that must be supported by the software for eachman-machine interface. For example, if the user operates from a display terminal, then the following should be included:
+		Screen format required
+		Page layout and content of report and menu
+		Timing sequence for input and output
+		Usage of some functional key combinations
+B. Every aspect about the use of the system's user interface. It could be a list that shows the user what should do and what should not do.  For example, an option of overlong or overshort message. . And same as other requirements, these requirements should be easily verified. For example, saying "A level 4 typist can finish function X in Z minutes after a one-hour training." instead of "A typist can finish function X"	
+
+这应描述下述内容：
+
+A. 对每种人机界面，软件所必须支持的特性。例如，如果系统用户通过一个显示终端进行操作，那么应包含下述内容：
+要求的屏幕格式
+页面规划及报告或菜单的内容
+输入和输出的相关时序
+一些组合功能键的用法
+
+B. 与系统用户接口使用相关的所有方面。这可能只是一个简单的关于系统怎样展示给用户而该做什么和不该做什么的列表。例如提供关于长或短错误消息选项。和所有其它需求一样，这些需求也应能被检验，例如，四级打字员经一小时的培训后能在Z分钟内完成功能X，而不是一个打字员能完成功能X。
+
+\subsection{软件接口}
+<The interface with other system/modules/projects should be explained in detail. >
+
+详细描述与其他系统 /模块 /项目之间的接口
+
+Describes how to use the other (required) software products. (such as data management system, operation system, or algorithm tools package), and the interfaces to other application systems (such as interfaces between the protocol process system and the database management system )
+For each required software product, following information should be provided:
+A. Name
+B. Mnemonic symbol
+C. Version number
+D. Source
+For each interface, this section should:
+A. Discuss the objective of the required software.
+B. Define the interfaces by content and format of message/function. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
+
+在此应描述如何使用其它（必需的）软件产品（例如，数据管理系统，操作系统，或算法工具包），以及与其它应用系统的接口（例如，协议处理系统和数据库管理系统之间的接口）。
+
+对每个必需的软件产品，应提供下列信息：
+A.	名字
+B.	助记符
+C.	版本号
+D.	来源
+
+对每个接口，本部分应：
+
+A .	讨论与本软件产品相关的接口软件的目的。
+
+B.	按消息/函数内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
+
+\subsection{硬件接口}
+<The interface with other hardware components should be explained in detail. >
+
+详细描述与硬件的接口
+
+Describes the logical features of the interface between the software and hardware components, including the equipment supported and how the equipment and protocol is supported. 
+
+Defines the interfaces according to the content and format of the software/hardware protocol. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
+
+在此描述软件产品和系统硬件组件之间接口的逻辑特征，也包括支持哪些设备、怎样支持这些设备和协议等。
+ 
+按软/硬件协议内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
+
+\subsection{通讯接口}
+<This should specify the various interfaces to communications such as local network protocols, etc.>
+
+详细描述通讯接口，如本地网络协议等。
+
+Defines the interfaces according to the content and format of the message/function. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
+
+按消息/函数内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
