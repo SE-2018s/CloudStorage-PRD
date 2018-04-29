@@ -1,8 +1,45 @@
 \chapter{软件质量特性}
-<Specify any additional quality characteristics for the project that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.
 
-详细说明项目任何其他的质量特性。该特性对客户和开发者都非常重要。考虑的方面包括：适应性，可用性，正确性，灵活性，交互工作能力，可维护性，可移植性，可靠性，可重用性，鲁棒性，可测试性和可用性等。定量的详细描述这些特性，尽可能的可验证。对不同属性之间的重要性加以阐述，如：易用性比易学性更重要。
+\section{适应性}
 
-<Please use the below sub-section for each attributes separately. You can copy the section for additional attributes. >
+本云盘可以在移动平台、桌面平台访问，只需要一个通用的浏览器即可，覆盖了基本所有的使用场景
 
-每一个属性单独使用一个小节描述，可根据需要进行增减，如增加可维护性小节等。
+\section{可用性}
+
+本云盘可提供99.9\%的可用性，即连续运行一年时间里期望中断时间是8.76小时：这依赖于底层文件系统的高可用性与操作系统的稳定性以及网络链接的稳定性
+
+\section{正确性}
+
+云盘建立在TCP链接上，已有基础的正确性保证的同时还会对数据传输加上CRC校检码，保证数据传输的正确性
+
+\section{灵活性}
+
+本云盘能适应多种不同的操作、应用场景，满足不同用户的操作习惯
+
+\section{交互工作能力}
+
+本云盘的交互方式繁多但易用，允许用户灵活的组合各个功能来使用本云盘，实现复杂操作
+
+\section{可维护性}
+
+本云盘系统尽最大努力实现机制与策略分离，各个模块之间低耦合，方便后期调整策略、维护
+
+\section{可移植性}
+
+本云盘系统的客户端为网页，从而可以在任意平台上使用。服务器端则能适配大多数Linux平台
+
+\section{可靠性}
+
+本云盘系统对绝大多数应用场景中会出现的异常情况做了包容处理，有效减少系统将发生宕机的可能性，十分可靠
+
+\section{可重用性}
+
+本云盘的各个模块对其他模块的依赖性都被尽量降低，使得其可以方便的重用到其他项目中
+
+\section{鲁棒性}
+
+本云盘除了对请求进行校验，还将对多种网络攻击手段进行预防，避免异常行为的发生影响系统运行和用户使用
+
+\section{可测试性}
+
+本云盘系统的各个模块都经过了完善的测试，保证能经受用户的各种操作而稳定运行
