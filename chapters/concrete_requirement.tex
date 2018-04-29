@@ -276,66 +276,39 @@ A. 对该功能所有输出数据的详细描述，这个描述包括：
 B. 在适当的地方提供对接口规格或接口控制文档的参考。
 
 此外，对那些需求集中在输入/输出行为的系统，SRS应描述所有重要的输入/输出行为及输入输出对的次序。对一个需要记忆其行为以根据输入和过去的行为进行反应的系统，输入输出对的次序是要求的；这种功能行为就类似于有限状态机。
+
 \section{性能需求}
-<If there are performance requirements, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specifies the timing relationships for real time systems. Such requirements should be made as specific as possible. >
 
-如果有性能方面的需求，在这里列出并解释他们的原理。以帮助开发者理解意图以做出正确的设计选择。在实时系统中的时序关系。保证需求尽可能的详细而精确。
-\subsection{性能需求1}
-Describes the statically and dynamically quantized requirements on the software (or the interaction between user and the software)
-Static quantized requirement could include:
-A. Maximum number of terminal supported.
-B. Maximum number of users that can use the software at the same time.
-C. Maximum number of files and records to be processed
-D. Maximum size of  tables and files
-Dynamically quantized requirements could include:
-A. Specific duration of normal value and peak value of workload (e.g., one hour)
-B. Number of event and task and data volume to be processed 
-All these requirements should be described by measurable term, for example, saying "95% of the events should be processed in 1 second", instead of saying "the operator need not wait for the business to complete."
-Note: The quantized constraint of a detailed requirement should be described in the subsection of the detailed requirement.
-本子章节应从整体上描述静态和动态的量化的对软件（或人与软件交互）的需求。
+Summary of 性能需求
 
-静态的量化需求可能包括：
+\subsection{服务器性能需求}
 
-A. 支持的终端数目。
+1. 云盘拥有公网ip，供全网用户访问，并发量应做到：允许1000用户同时访问网盘，并保证浏览指定文件夹的文件能在1s内完成
 
-B. 支持的同时使用的用户数目。
+2. 本云盘为方便用户在不同终端访问文件与进行文件备份，故对磁盘存储空间要求较高：单个用户至少1TB，总空间在500TB左右。单用户文件数量在数百个左右，总数量在5000左右。
 
-C.处理的文件和记录的数目。
+3. 至少需要1Gbps的有线互联网接入，以保证每个用户的下载速度
 
-D.表和文件的大小。
+4. 为防止服务器宕机使得数据丢失，需要提供冗余机制
 
-动态的量化需求可能包括:
+\subsection{客户端性能需求}
 
-A. 在正常和峰值工作量条件下特定时间段（如一小时）
+1. 用户使用普通浏览器访问网盘，不需要太高性能，普通智能手机与商务电脑即可支持
 
-B. 处理的事务和任务的数目以及数据量。
+2. 用户端至少需要200KB/s的下载/上传网速来保证文件的正常下载、上传
 
-所有的这些需求应以可测量的术语进行描述，例如所有的操作应在1秒内被处理完成，而不是描述成操作员不必等待操作的完成。
-
-注意： 用于一个具体功能的量化限制通常在该功能的处理子章节中描述。
 \section{外部接口需求}
 \subsection{用户接口}
-<The interface of the system with the User and vice versa should be explained in detail. >
 
-详细描述系统与用户之间的接口
+用户使用浏览器访问给定的域名来访问云盘，在不同size的屏幕上自适应，支持Chrome，Edge，Firefox等主流浏览器。
 
-This section should include:
-A. Features that must be supported by the software for eachman-machine interface. For example, if the user operates from a display terminal, then the following should be included:
-		Screen format required
-		Page layout and content of report and menu
-		Timing sequence for input and output
-		Usage of some functional key combinations
-B. Every aspect about the use of the system's user interface. It could be a list that shows the user what should do and what should not do.  For example, an option of overlong or overshort message. . And same as other requirements, these requirements should be easily verified. For example, saying "A level 4 typist can finish function X in Z minutes after a one-hour training." instead of "A typist can finish function X"	
+对计算机基本使用较为熟悉的用户可以在不需要他人教学的情况下，10分钟能自主学会使用本软件
 
-这应描述下述内容：
+使用方式：
+1. 上传、下载、删除重命名等功能按钮与右键菜单
+2. 拖拽、复选框进行复选
 
-A. 对每种人机界面，软件所必须支持的特性。例如，如果系统用户通过一个显示终端进行操作，那么应包含下述内容：
-要求的屏幕格式
-页面规划及报告或菜单的内容
-输入和输出的相关时序
-一些组合功能键的用法
-
-B. 与系统用户接口使用相关的所有方面。这可能只是一个简单的关于系统怎样展示给用户而该做什么和不该做什么的列表。例如提供关于长或短错误消息选项。和所有其它需求一样，这些需求也应能被检验，例如，四级打字员经一小时的培训后能在Z分钟内完成功能X，而不是一个打字员能完成功能X。
+在这里插入软件界面示意图
 
 \subsection{软件接口}
 <The interface with other system/modules/projects should be explained in detail. >
