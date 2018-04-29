@@ -66,7 +66,7 @@
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.002 文件：查看文件属性}
 
 \subsubsection{介绍} 
-用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、用户权限、md5值等。
+用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、md5值，以及是否加密等。
 
 \subsubsection{输入} 
 用户选中文件，再点击属性选项。
@@ -105,7 +105,7 @@
 用户选中文件或文件名，右键，选中“重命名”选项。
 
 \subsubsection{处理}
-客户端将重命名的原名字和新名字打包发给服务器端，服务器检查该用户是否有重命名权限，如果有则常识修改，如果明明合法不冲突则返回“成功”的信息，否则，返回“失败”的信息。
+客户端将重命名的原名字和新名字打包发给服务器端，服务器检查该重命名是否合法不冲突，是则返回“成功”的信息，否则，返回“失败”的信息。
 
 异常：如果通信失败，则客户端重传，直到超时。
 若有异常发生，则将异常信息保存到日志中，并显示友好界面提示异常。
@@ -131,7 +131,7 @@
 
 剪切：客户端将用户选中要剪切的项的完全名字（包括路径）存储到cache中。
 
-粘贴：客户端将执行粘贴的文件夹的路径，以及之前复制或者剪切的类型一起打包，发给服务器端。服务器接收之后检查用户对目标文件夹是有写入权限，对源文件是否有读权限，命名是否冲突。如果没有就返回“没有权限”信息；如果有，如果是复制，则复制到目标文件夹，如果是剪切，则先复制，再删除（删除之前还要检查源文件的写权限）。最后返回“成功”给客户端。
+粘贴：客户端将执行粘贴的文件夹的路径，以及之前复制或者剪切的类型一起打包，发给服务器端。服务器接收之后检查命名是否冲突。如果冲突就返回“命名冲突”信息；如果不冲突，如果是复制，则复制到目标文件夹，如果是剪切，则先复制，再删除。最后返回“成功”给客户端。
 
 \subsubsection{输出}
 如果粘贴成功，则刷新当前文件夹，显示最新结果。
@@ -150,7 +150,7 @@
 彻底删除：用户在回收站中选中文件或文件夹，右键，选中“彻底删除”。
 
 \subsubsection{处理} 
-移入回收站：客户端将该文件或文件夹名字打包发送到服务器端。服务器端检查该用户是否有权限删除该文件或文件夹。如果有则移入“回收站”中并返回“成功”，否则返回“失败”。客户端收到信息后，如果成功，则刷新当前文件夹；如果失败，则弹窗提示。
+移入回收站：客户端将该文件或文件夹名字打包发送到服务器端。服务器将该文件或文件夹移入“回收站”中并返回“成功”。客户端收到信息后，刷新当前文件夹。如果超时，则弹窗提示。
 
 移出回收站：客户端将该文件或文件夹名字打包发送到服务器端。服务器端检查该文件或文件夹复原之后是否有命名冲突等。如果无冲突则移出“回收站”中并返回“成功”，否则返回“失败”。客户端收到信息后，如果成功，则刷新回收站；如果失败，则弹窗提示。
 
@@ -184,11 +184,47 @@
 \subsubsection{输出}
 如果成功，并且是当前目录是收藏夹，则刷新当前目录，显示最新的名字。如果失败，则提示失败。
 
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
+
+\subsubsection{介绍}
+用户可以对文件以及文件夹进行加密操作，以防密码被盗时泄漏隐私。 
+
+另外，用户在对加密文件进行任何操作时都要先解密。
+
+\subsubsection{输入} 
+用户选中所要加密的文件或文件夹，右键，选中“加密”选项。在接下来弹出的对话框中写入不同于登录密码的密钥。
+
+\subsubsection{处理} 
+客户端将用户输入的密钥进行密码学处理，和对应的文件以及文件夹名称一起打包，发给服务器。服务器端用对该文件及文件夹设置加密标记，并保存经密码学处理的密钥，以便后面比对。最后服务器将陈工信息返回给客户端。
+
+\subsubsection{输出} 
+如果成功，则提示加密成功。否则弹窗提示失败。
+
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.004 文件：分享}
+
+\subsubsection{介绍}
+用户可以将文件以及文件夹分享给其他用户。
+
+\subsubsection{输入} 
+
+\subsubsection{处理} 
+
+\subsubsection{输出} 
 
 
 
 
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
 
+\subsubsection{介绍}
+
+
+\subsubsection{输入} 
+
+\subsubsection{处理} 
+
+\subsubsection{输出} 
 
 
 
@@ -279,10 +315,8 @@ B. 在适当的地方提供对接口规格或接口控制文档的参考。
 
 \section{性能需求}
 
-Summary of 性能需求
-
 \subsection{服务器性能需求}
-
+ 
 1. 云盘拥有公网ip，供全网用户访问，并发量应做到：允许1000用户同时访问网盘，并保证浏览指定文件夹的文件能在1s内完成
 
 2. 本云盘为方便用户在不同终端访问文件与进行文件备份，故对磁盘存储空间要求较高：单个用户至少1TB，总空间在500TB左右。单用户文件数量在数百个左右，总数量在5000左右。
@@ -300,7 +334,7 @@ Summary of 性能需求
 \section{外部接口需求}
 \subsection{用户接口}
 
-用户使用浏览器访问给定的域名来访问云盘，在不同size的屏幕上自适应，支持Chrome，Edge，Firefox等主流浏览器。
+用户使用浏览器访问给定的域名来访问云盘，在不同分辨率的屏幕上自适应，支持Chrome，Edge，Firefox等主流浏览器。
 
 对计算机基本使用较为熟悉的用户可以在不需要他人教学的情况下，10分钟能自主学会使用本软件
 
@@ -311,19 +345,6 @@ Summary of 性能需求
 在这里插入软件界面示意图
 
 \subsection{软件接口}
-<The interface with other system/modules/projects should be explained in detail. >
-
-详细描述与其他系统 /模块 /项目之间的接口
-
-Describes how to use the other (required) software products. (such as data management system, operation system, or algorithm tools package), and the interfaces to other application systems (such as interfaces between the protocol process system and the database management system )
-For each required software product, following information should be provided:
-A. Name
-B. Mnemonic symbol
-C. Version number
-D. Source
-For each interface, this section should:
-A. Discuss the objective of the required software.
-B. Define the interfaces by content and format of message/function. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
 
 在此应描述如何使用其它（必需的）软件产品（例如，数据管理系统，操作系统，或算法工具包），以及与其它应用系统的接口（例如，协议处理系统和数据库管理系统之间的接口）。
 
@@ -339,24 +360,74 @@ A .	讨论与本软件产品相关的接口软件的目的。
 
 B.	按消息/函数内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
 
+\subsubsection{服务器操作系统}
+
+名字：Debian Linux
+
+助记符：Debian
+
+版本号：9
+
+来源：开源社区
+
+目的：服务器端的运行环境，方便开发人员进行开发、调试
+
+\subsubsection{数据库系统}
+
+名字：MySQL Server
+
+助记符：MySQL
+
+版本号：5.7
+
+来源：包管理器
+
+目的：提供存储各个用户信息的数据库系统
+
+\subsubsection{分布式文件系统}
+
+名字：Ceph
+
+助记符：Ceph
+
+版本号：12
+
+来源：官网
+
+目的：提供底层分布式的文件系统并实现高可用
+
+\subsubsection{HTTP服务器}
+
+名字：
+
+助记符：
+
+版本号
+
+来源
+
+\subsubsection{后端框架语言}
+
+名字：Python/Java
+
+助记符：Python/Java
+
+版本号：3.6
+
+来源：包管理器 
+
 \subsection{硬件接口}
-<The interface with other hardware components should be explained in detail. >
 
-详细描述与硬件的接口
+1. 服务器架构：x86/64的服务器主机集群或云主机
 
-Describes the logical features of the interface between the software and hardware components, including the equipment supported and how the equipment and protocol is supported. 
+2. 服务器必须有1Gbps互联网接入
 
-Defines the interfaces according to the content and format of the software/hardware protocol. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
-
-在此描述软件产品和系统硬件组件之间接口的逻辑特征，也包括支持哪些设备、怎样支持这些设备和协议等。
- 
-按软/硬件协议内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
+3. 服务器必须有100IOPS以上的磁盘（阵列）
 
 \subsection{通讯接口}
-<This should specify the various interfaces to communications such as local network protocols, etc.>
 
-详细描述通讯接口，如本地网络协议等。
+与浏览器通讯：使用HTTPS协议
 
-Defines the interfaces according to the content and format of the message/function. If the interfaces have been clearly described in other documents, it is not necessary to describe in detail here. But the reference of those documents should be given.
+参见 RFC2616、RFC2818、RFC2324 标准
 
-按消息/函数内容和格式定义接口。如果接口已在其它文档中很清楚地描述，就没有必要在这儿进行详细描述，但需说明应参考的文档。
+
