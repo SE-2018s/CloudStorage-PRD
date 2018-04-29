@@ -1,31 +1,54 @@
 \chapter{具体需求}
-<The following sections must be repeated for each requirement. >
-
-在每一条需求描述中重复下列部分
 \section{功能需求}
-This section describes how the input of the software is translated to the output. It describes the essential action the software must perform.
 
-For each kind of function, or each independent function in some cases, the requirements of input, process and output must be described, which are usually organized with the following four subsections:
+本章节描述xyz云盘系统所必须执行的基本动作，以及其输入、输出，以及中间处理的过程。
+\subsection{R.XYZ.CLOUDSTORAGE.USER.LOGIN.001 用户：显示初始登陆界面 }
 
-本子章节应描述软件产品的输入怎样被转换成输出。它描述了软件必须执行的基本动作。 
-
-对每一类功能或有时对每一个单独的功能，必须描述输入、处理、输出方面的需求。这些通常以下面四个子段落来组织：
-\subsection{功能需求1}
-Please don't use "Functional Requirement(1)" as the title of the functional requirement. Name the functional requirements with a few simple words and a requirement ID.  For example:
-
-R.INTF.CALC.001 Calculating expression
-
-R.INTF.CALC.002 Print
-
-Naming the requirement ID shall follow the Software Requirements Management Procedure (REP01)
-
-用需求编号加上简短词汇做为功能需求名，不要用“功能需求（1）”作为功能名，例如：R.INTF.CALC.001 计算表达式
-
-R.INTF.CALC.002 打印
-
-需求编号规则按照软件需求管理规程(REP01)进行
 \subsubsection{介绍}
-<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature.  Include how the project should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use "TBD" as a placeholder to indicate when necessary information is not yet available. >
+打开客户端之后，用户需要登陆，才可以访问自己的存储数据。登陆需要友好的登录界面。
+
+\subsubsection{输入}
+用户打开客户端。
+
+\subsubsection{处理}
+生成登录窗口，包括用户名密码等窗口，其中，密码需要密码显示的保护处理。
+\subsubsection{输出}
+显示友好的登录窗口。
+
+\subsection{R.XYZ.CLOUDSTORAGE.USER.LOGIN.001 用户：密码验证 }
+
+\subsubsection{介绍}
+在看到登陆界面之后，用户需要输入用户名密码，并通过”登陆“键提交密码，以进行验证并登陆。
+
+\subsubsection{输入}
+用户输入用户名和密码，按”登陆“键，或者”Enter“键。
+
+\subsubsection{处理}
+客户端将用户名密码，结合时间戳进行密码学处理之后打包，发送给服务器端。
+服务器端通过密码学手段验证密码。如果密码正确，返回带有时间戳的cookie给客户端。如果密码错误，则返回错误信息给客户端。错误次数不能超过4次。超过则禁止ip尝试同一用户。如果发生通信异常，则保存异常信息到异常日志中，同时客户端重传，直到超时。
+\subsubsection{输出}
+如果密码正确，显示用户的跟文件夹；如果密码错误，显示”密码错误“，以及错误次数，进行警告。如果通信异常，则显示通信异常信息。
+
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.001 文件：打开文件夹}
+
+\subsubsection{介绍}
+用户可以打开文件夹，查看所包含的文件及子文件夹。
+
+\subsubsection{输入}
+用户双击文件夹，或者选中文件夹之后点击打开选项。
+
+\subsubsection{处理}
+客户端将打开文件夹的指令打包，发送到服务器，服务器传回文件夹内容。客户端接收之后，切换路径到所选中的文件夹，并展示其所包含的文件及文件夹。
+
+异常：如果通信失败，则客户端重传，直到超时。
+
+\subsubsection{输出}
+若无异常发生，用户可以看到文件夹中的文件以及子文件夹。
+
+若有异常发生，则将异常信息保存到日志中，并显示友好界面提示异常。
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.002 文件：打开}
+
 
 逐条列出与本特性相关的功能需求。包括项目如何响应预期的错误输入，非法条件和无效输入。需求应该简明，完整，不含糊，可验证，必要的。 当需要的信息不确定的时候使用“待定”。
 \subsubsection{输入}
