@@ -66,7 +66,7 @@
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.002 文件：查看文件属性}
 
 \subsubsection{介绍} 
-用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、md5值等。
+用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、md5值，以及是否加密等。
 
 \subsubsection{输入} 
 用户选中文件，再点击属性选项。
@@ -184,11 +184,47 @@
 \subsubsection{输出}
 如果成功，并且是当前目录是收藏夹，则刷新当前目录，显示最新的名字。如果失败，则提示失败。
 
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
+
+\subsubsection{介绍}
+用户可以对文件以及文件夹进行加密操作，以防密码被盗时泄漏隐私。 
+
+另外，用户在对加密文件进行任何操作时都要先解密。
+
+\subsubsection{输入} 
+用户选中所要加密的文件或文件夹，右键，选中“加密”选项。在接下来弹出的对话框中写入不同于登录密码的密钥。
+
+\subsubsection{处理} 
+客户端将用户输入的密钥进行密码学处理，和对应的文件以及文件夹名称一起打包，发给服务器。服务器端用对该文件及文件夹设置加密标记，并保存经密码学处理的密钥，以便后面比对。最后服务器将陈工信息返回给客户端。
+
+\subsubsection{输出} 
+如果成功，则提示加密成功。否则弹窗提示失败。
+
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.004 文件：分享}
+
+\subsubsection{介绍}
+用户可以将文件以及文件夹分享给其他用户。
+
+\subsubsection{输入} 
+
+\subsubsection{处理} 
+
+\subsubsection{输出} 
 
 
 
 
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
 
+\subsubsection{介绍}
+
+
+\subsubsection{输入} 
+
+\subsubsection{处理} 
+
+\subsubsection{输出} 
 
 
 
