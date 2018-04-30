@@ -73,7 +73,7 @@
 
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.003 文件：下载}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.002 文件：下载}
 
 \subsubsection{介绍}
 用户可以下载文件或文件夹
@@ -124,9 +124,29 @@
 
 若有异常发生，则将异常信息保存到日志中，并显示友好界面提示异常。
 
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.005 文件：返回上级文件夹}
 
+\subsubsection{介绍}
+用户退出该文件夹，进入父目录查看所包含的文件及子文件夹。
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.005 文件：查看文件属性}
+\subsubsection{输入}
+用户点击上一层按钮
+
+\subsubsection{处理}
+客户端判断是否已在根目录，否则将返回上一层指令打包，发送到服务器，是则不做响应。
+
+服务器判断是否已在根目录，若是则不做响应，否则传回文件夹内容。
+
+客户端接收之后，切换路径到父文件夹，并展示其所包含的文件及文件夹。
+
+异常：如果通信失败，则客户端重传，直到超时（20秒）。
+
+\subsubsection{输出}
+若无异常发生，用户可以看到父文件夹中的文件以及子文件夹。
+
+若有异常发生，则将异常信息保存到日志中，并显示友好界面提示异常。
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.006 文件：查看文件属性}
 
 \subsubsection{介绍} 
 用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、md5值、用户权限（针对共享文件夹），以及是否加密等。
@@ -143,7 +163,7 @@
 客户端接收到之后弹窗显示各项属性值。
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.006 文件：排序显示}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.007 文件：排序显示}
 
 \subsubsection{介绍} 
 用户可以按照文件名以及属性值选择排序显示的方式。
@@ -159,7 +179,7 @@
 
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.007 文件：重命名}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.008 文件：重命名}
 
 \subsubsection{介绍} 
 用户可以对文件以及文件夹进行重命名操作。
@@ -178,7 +198,7 @@
 
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.008 文件：复选}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.009 文件：复选}
 
 \subsubsection{介绍}
 
@@ -198,7 +218,7 @@
 
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.009 文件：复制、粘贴、剪切}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.010 文件：复制、粘贴、剪切}
 
 \subsubsection{介绍} 
 用户可以对部分文件以及文件夹进行复制、粘贴、剪切等操作。
@@ -445,6 +465,27 @@
 \subsubsection{输出} 
 若审核通过，则输出正常操作的结果。否则提示返回的审核信息
 
+\subsection{R.XYZ.CLOUDSTORAGE.TAB.001 标签页：创建}
+
+\subsubsection{介绍}
+用户可以同时打开多个目录标签页，方便在不同的目录下进行交互操作
+\subsubsection{输入} 
+用户点击标签页旁边的创建按钮
+\subsubsection{处理} 
+客户端打包指令发送给服务端，服务端返回与当前目录相同的一个子页面作为新的标签页
+\subsubsection{输出}
+用户在标签页栏看到与当前标签页在同一目录的新标签页
+
+\subsection{R.XYZ.CLOUDSTORAGE.TAB.002 标签页：关闭}
+
+\subsubsection{介绍}
+用户关闭一个新打开的标签页。最初的默认标签页不能被关闭
+\subsubsection{输入} 
+用户点击标签页上的关闭按钮
+\subsubsection{处理} 
+客户端打包指令发送给服务端并删除该子页，服务端返结束该会话记录
+\subsubsection{输出}
+该标签页被关闭，从标签栏中消失
 %共享文件夹
 
 \subsection{R.XYZ.CLOUDSTORAGE.SHAREFOLDER.001 共享文件夹：创建}
@@ -464,6 +505,7 @@
 \subsubsection{输出} 
 
 若创建失败，则提示错误信息，若创建成功，则进入该目录。
+
 
 \subsection{R.XYZ.CLOUDSTORAGE.SHAREFOLDER.002 共享文件夹：打开}
 
