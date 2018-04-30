@@ -6,12 +6,38 @@
 \begin{table}[htbp]
 \centering
 \caption{依赖关系表} \label{tab:simpletable}
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|}
     \hline
-    a & b \\
+    依赖部分 & 被依赖部分 & 解释  \\
     \hline
-    c & d \\
+    R..USER.LOGIN.002 & R..USER.LOGIN.001 & 显示初始登录界面之后才可以验证密码 \\
     \hline
+    R..USER.LOGIN.003 & R..USER.LOGIN.001 & 显示初始登录界面之后才可以注册 \\
+    \hline
+    R..USER.LOGIN.004 & R..USER.LOGIN.001 & 显示初始登录界面之后才可以重置密码 \\
+    \hline
+    R..USER.LOGIN.005 & R..USER.LOGIN.002 & 用户登录之后才可以退出 \\
+    \hline
+    R..FILE & R..USER.LOGIN.002 & 所有的文件操作（除了游客\\ &  &操作之外）都需要用户登录 \\ 
+    \hline
+    R..SHAREFOLDER & R..USER.LOGIN.002 & 所有的共享文件夹操作（除了\\ &  &游客操作之外）都需要用户登录\\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    \hline
+     &  & \\
+    
 \end{tabular}
-\note{这里是表的注释}
-\end{table}
+\note{表中的R..XXX等均指R.XYZ.CLOUDSTORAGE.XXX}
+\end{table} 
