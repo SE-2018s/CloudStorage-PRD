@@ -363,16 +363,19 @@
 若压缩成功，提示压缩成功并将压缩包选中
 若通信失败，则提示失败
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.000 文件：}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.010 文件：举报}
 
 \subsubsection{介绍}
-
+用户可以对文件或文件夹进行举报操作，以维护健康，合法的网络环境。
 
 \subsubsection{输入} 
+用户选中所要举报的文件以及文件夹，右键，选择“举报”选项。在接下来弹出的对话框中选择举报的分类。
 
 \subsubsection{处理} 
+客户端在用户点击“举报”选项之后，生成对话框，之后将用户所选择的文件以及文件夹的名字以及举报类型打包，发给服务器端。服务器接收之后记录文件名，及其md5值，并在所维护的举报库中找到相应md5，如果找到了，就增加举报次数，如果没有找到则将md5值加入，并设置举报次数为1。最后服务器端返回陈工信息给客户端。
 
 \subsubsection{输出} 
+客户端显示”感谢您的举报“窗口。
 
 \subsection{R.XYZ.CLOUDSTORAGE.SHAREFOLDER.001 共享文件夹：创建}
 
