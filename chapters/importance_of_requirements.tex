@@ -1,7 +1,7 @@
 \chapter{需求分级}
 \begin{table}[htbp]
 \centering
-\caption{需求分级表} \label{tab:classification}
+\caption{需求分级表1} \label{tab:abbr}
 \begin{tabular}{|c|c|c|}
     \hline
     需求ID & 需求名称 & 需求分级 \\
@@ -30,38 +30,58 @@
     \hline
     R..FILE.BASIC.007 & 文件：排序显示 & 重要 \\
     \hline
-    R..FILE.BASIC.008 & 文件：重命名文件 & 重要 \\
+    R..FILE.BASIC.008 & 文件：重命名 & 重要 \\
     \hline
-    R..FILE.BASIC.009 & 文件：复制、剪切、粘贴文件 & 重要 \\
+    R..FILE.BASIC.009 & 文件：复制、剪切、粘贴 & 重要 \\
     \hline
     R..FILE.BASIC.010 & 文件：创建，关闭标签页 & 最好有的 \\
     \hline
-    R..FILE.SPECIAL.001 & 文件：将文件移入回收站 & 必须 \\
+    R..FILE.HIGH.001 & 文件：回收站 & 必须 \\
     \hline
-    R..FILE.SPECIAL.002 & 文件：将文件从回收站彻底删除 & 必须 \\
+    R..FILE.HIGH.002 & 文件：收藏夹 & 重要 \\
     \hline
-    R..FILE.SPECIAL.003 & 文件：将文件从回收站移出 & 必须 \\
+    R..FILE.HIGH.003 & 文件：加密 & 重要 \\
     \hline
-    R..FILE.SPECIAL.004 & 文件：加密文件 & 重要 \\
+    R..FILE.HIGH.004 & 文件：分享 & 必须 \\
     \hline
-    R..FILE.SPECIAL.005 & 文件：分享文件 & 必须 \\
+    R..FILE.HIGH.005 & 文件：分类 & 最好有的 \\
+    \hline 
+\end{tabular}
+\note{表中的R..XXX等均指R.XYZ.CLOUDSTORAGE.XXX}
+\end{table}
+\begin{table}[htbp]
+\centering
+\caption{需求分级表2} \label{tab:abbr}
+\begin{tabular}{|c|c|c|}
     \hline
-    R..FILE.SPECIAL.006 & 文件：搜索文件 & 重要 \\
+    需求ID & 需求名称 & 需求分级 \\
     \hline
-    R..FILE.SPECIAL.007 & 文件：预览文件 & 最好有的 \\
+    R..FILE.HIGH.006 & 文件：搜索 & 重要 \\
     \hline
-    R..FILE.SPECIAL.008 & 文件：在线压缩/解压 & 最好有的 \\
+    R..FILE.HIGH.007 & 文件：预览 & 最好有的 \\
     \hline
-    R..FILE.SPECIAL.009 & 文件：举报非法内容 & 最好有的 \\
+    R..FILE.HIGH.008 & 文件：在线解压 & 最好有的 \\
     \hline
-    R..FILE.SPECIAL.010 & 文件：创建/打开共享文件夹 & 最好有的 \\
+    R..FILE.HIGH.009 & 文件：在线压缩 & 最好有的 \\
+    \hline
+    R..FILE.HIGH.010 & 文件：举报 & 最好有的 \\
+    \hline
+    R..FILE.HIGH.011 & 文件：审核 & 最好有的 \\
+    \hline
+    R..TAB.001 & 标签页：创建 & 最好有的 \\
+    \hline
+    R..TAB.002 & 标签页：关闭 & 最好有的 \\
+    \hline
+    R..SHAREFOLDER.001 & 共享文件夹：创建 & 重要 \\
+    \hline
+    R..SHAREFOLDER.002 & 共享文件夹：打开 & 重要 \\
+    \hline
+    R..SHAREFOLDER.003 & 共享文件夹：权限匹配 & 最好有的 \\
+    \hline
+    R..SHAREFOLDER.004 & 共享文件夹：权限管理 & 最好有的 \\
+    \hline
+    R..VERSION.001 & 版本管理：版本更新 & 重要 \\
     \hline
 \end{tabular}
+\note{表中的R..XXX等均指R.XYZ.CLOUDSTORAGE.XXX}
 \end{table}
-
-重要性分类如下：
-\begin{itemize}
-\item 必须的		绝对基本的特性；如果不包含，产品就会被取消。
-\item 重要的		不是基本的特性，但这些特性会影响产品的生存能力。
-\item 最好有的		期望的特性；但省略一个或多个这样的特性不会影响产品的生存能力
-\end{itemize}
