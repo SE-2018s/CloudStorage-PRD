@@ -1,11 +1,9 @@
 \chapter{依赖关系}
-<Explain the internal and external dependency for each requirement (if applicable). >
-
 解释每一条需求的内部和外部依赖关系。
 
 \begin{table}[htbp]
 \centering
-\caption{依赖关系表} \label{tab:simpletable}
+\caption{功能需求的依赖关系表} \label{tab:simpletable}
 \begin{tabular}{|c|c|c|}
     \hline
     依赖部分 & 被依赖部分 & 解释  \\
@@ -22,22 +20,70 @@
     \hline
     R..SHAREFOLDER & R..USER.LOGIN.002 & 所有的共享文件夹操作（除了\\ &  &游客操作之外）都需要用户登录\\
     \hline
-    R..FILE.BASIC.002 &  & \\
+    R..FILE.BASIC.002 & R..FILE.BASIC.001 & 用户下载之前该文件/文件夹要被上传 \\
     \hline
-     &  & \\
+    R..FILE.BASIC.002 & R..FILE.BASIC.004 & 或者用户下载之前该文件/文件夹要被分享 \\
     \hline
-     &  & \\
+    R..FILE & R..FILE.HIGH.003 & 对于加密的文件或文件夹，\\ &  & 用户操作之前还要输入密码进行确认\\
     \hline
-     &  & \\
+    R..FILE.HIGH.011 & R..FILE.HIGH.010 & 审核系统需要部分依赖举报功能 \\
     \hline
-     &  & \\
-    \hline
-     &  & \\
-    \hline
-     &  & \\
-    \hline
-     &  & \\
     
 \end{tabular}
 \note{表中的R..XXX等均指R.XYZ.CLOUDSTORAGE.XXX}
 \end{table} 
+
+
+\begin{table}[htbp]
+\centering
+\caption{性能需求的依赖关系表} \label{tab:simpletable}
+\begin{tabular}{|c|c|c|}
+    \hline
+    依赖部分 & 被依赖部分 & 解释  \\
+    \hline
+    网络带宽、延迟 & 网络硬件环境， & 高带宽、低延迟，要求极高的网络环境 \\
+    & 服务器网络结构 &  \\
+    \hline
+    用户存储空间 & 磁盘硬件大小 & 足够的用户存储空间需要足够的磁盘容量、数量 \\
+    \hline
+    存储冗余 & Ceph文件系统 & 可靠高效的存储冗余需要利用Ceph文件系统 \\
+    \hline
+    客户端的运行 & 用户终端硬件基础 & 客户端需要至少200kB/s的带宽，\\ & & 以及1GB以上的内存 \\
+    \hline
+    
+\end{tabular}
+\end{table} 
+
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{外部接口的依赖关系表} \label{tab:simpletable}
+\begin{tabular}{|c|c|c|}
+    \hline
+    依赖部分 & 被依赖部分 & 解释  \\
+    \hline
+    客户端的运行 & 用户终端软件基础 & 客户端需要运行在主流操作系统上：\\ & & 如：Linux、MacOS、Windows \\ & & 客户端需要运行在主流浏览器中： \\ & & 如：Chrome、Edge、Firefox \\
+    \hline
+    数据管理系统 & Mysql & 优质的开源DBMS \\
+    \hline
+    服务器操作系统 & CentOS & 以稳定出名的开源操作系统\\
+    \hline
+    分布式文件系统 & Ceph & 以稳定高效高可用出名的分布式文件系统\\
+    \hline
+    HTTP服务器 & Tomcat & 以便捷高效出名的Apache项目 \\
+    \hline
+    后端框架语言 & Java & 使用量最多的编程语言\\
+    \hline
+    服务器架构 & x64集群或云主机 & 需要庞大数量的服务器\\
+    \hline
+    通讯接口 & HTTP/HTTPS，TCP/IP协议 & 网络应用必备的协议 \\
+    \hline
+    
+\end{tabular}
+\end{table} 
+
+
+
+    
