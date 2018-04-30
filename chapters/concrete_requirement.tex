@@ -423,7 +423,7 @@
 
 
 \subsection{R.XYZ.CLOUDSTORAGE.SHAREFOLDER.003 共享文件夹：权限匹配}
-
+ 
 \subsubsection{介绍}
 共享文件夹涉及到多用户合作，需要对不同用户的操作根据其权限来决定是否允许
 
@@ -486,84 +486,6 @@
 \subsubsection{输出} 
 若修改成功，则显示修改成功，否则提示没有管理权限
 
-
-
-逐条列出与本特性相关的功能需求。包括项目如何响应预期的错误输入，非法条件和无效输入。需求应该简明，完整，不含糊，可验证，必要的。 当需要的信息不确定的时候使用“待定”。
-\subsubsection{输入}
-This section consists of:
-A. Detailed description of all input data of the function, including:
-Source of input
-Quantify
-Measurement units
-Timing requirements
-Valid input range that contains the precision and tolerance
-B. Reference of interface specification or interface control document that are provided in proper place.
-
-本子段落应包含下列内容：
-
-A. 对该功能所有输入数据的详细描述，包括：
-
-		输入来源
-		数量
-		度量单位
-		时间要求
-		包含精度和容忍度的有效输入范围
-		
-B. 在适当的地方提供的对接口规格或接口控制文档的参考。
-\subsubsection{处理}
-Describes all the operations on the input data, and the process to get the output data, including the following specifications:
-A. Verification of input data
-B. Exact order of the operations, including the time sequene of each event.
-C. Response to exception, such as:
-		 Overflow
-		Communication failure
-		Error process
-D. Any method used to transfer the input data to the output data. (such as equation,mathematic algorithm and logical operation)
-For example.
-		The formula to calculate the income tax in a pay roll.
-		the weather model used for weather forecast
-E. Verification of output data.
-本子段落应描述对输入数据所执行的所有操作和如何获得输出的过程。这包括下列规格：
-
-A. 输入数据的有效性检测。
-
-B. 操作的确切次序，包括各事件的时序。
-
-C. 对异常情况的回应，例如：
-		溢出
-		通信失败
-		错误处理
-D. 用于把系统输入转换到相应输出的任何方法（诸如方程式，数学算法，逻辑操作）。例如，这可能描述下列方面：
-		对工资单里代扣所得税的计算公式。
-		用于气象预报的气象模型。
-		
-E.	对输出数据的有效性检测。
-\subsubsection{输出}
-This section should include:
-A. The detailed description of output data of the function, including:
-		Target to output to (Such as a printer or a file)
-		Quantity
-		Measurement units
-		Time sequence
-		Valid output range including the precision and tolerance
-		Process of the invalid value.
-		Error message.
-B. Reference of interface specification or interface control document that are provided in proper place.
-For the systems with their requirements focused on the input/output actions, all the important input/output actions and the time sequences of the input/output pairs should be described in the SRS. In a system that inputs and actions are memorized as the basis for the reactions to be taken, the timing sequence for the input/output pairs must be available here. This kind of functional action is similar to a status machine.  
-本子段落应包含：
-
-A. 对该功能所有输出数据的详细描述，这个描述包括：
-		输出的到何处（如打印机，文件）
-		数量
-		度量单位
-		时序
-		包含精确度和容忍度的有效输出范围
-		对非法值的处理
-		错误消息
-		
-B. 在适当的地方提供对接口规格或接口控制文档的参考。
-
-此外，对那些需求集中在输入/输出行为的系统，SRS应描述所有重要的输入/输出行为及输入输出对的次序。对一个需要记忆其行为以根据输入和过去的行为进行反应的系统，输入输出对的次序是要求的；这种功能行为就类似于有限状态机。
 
 \section{性能需求}
 
