@@ -19,34 +19,79 @@
 
 \section{数据字典}
 \subsection{数据流说明}
-\subsubsection{数据流1名称}
-<Title of  the data flow should accord with the one in data flow diagram, and the Data description notions should be used.  >
+\subsubsection{用户信息}
+来源：用户
 
-与数据流图中的名称一致，采用数据描述符号说明数据流的内容
+简述：用户的基本个人信息
 
-\subsubsection{数据流2名称}
-<Title of  the data flow should accord with the one in data flow diagram, and the Data description notions should be used   >
+去向：服务器
 
-与数据流图中的名称一致，采用数据描述符号说明数据流的内容
+\subsubsection{上传文件}
+来源：用户
+
+简述：用户上传到云盘中的文件
+
+去向：服务器
+
+\subsubsection{下载文件}
+来源：服务器
+
+简述：通过链接下载的文件
+
+去向：用户/游客
 
 \subsection{数据存储说明}
-\subsubsection{数据存储1名称}
-<Title of  the data flow should accord with the one in data flow diagram, and the Data description notions should be used. The arrangement of the data in data store should also be described.>
+\subsubsection{用户信息数据表}
+描述：保存每个用户相关信息的数据表
 
-与数据流图中的名称一致，采用数据描述符号说明数据流的内容，另外还需描述数据排列方式
+来源：用户创建，修改操作
 
-\subsubsection{数据存储2名称}
-<Title of  the data flow should accord with the one in data flow diagram, and the Data description notions should be used.The arrangement of the data in data store should also be described.>
+去处：身份验证系统，指令管理系统
 
-与数据流图中的名称一致，采用数据描述符号说明数据流的内容，另外还需描述数据排列方式
+组成：用户名+密码
+
+排序方式：用户名的字典序
+
+\subsubsection{上传文件数据表}
+描述：保存每个用户云盘文件的数据表
+
+来源：用户上传的文件
+
+去处：数据库系统
+
+组成：用户信息+目的路径+二进制文件
+
+排序方式：用户信息, 文件路径的字典序
+
+\subsubsection{下载文件数据表}
+描述：从云盘中下载文件的数据表
+
+来源：数据库系统
+
+去处：用户或游客
+
+组成：文件链接+二进制文件
+
+排序方式：文件名的字典序
 
 \subsection{加工说明}
-\subsubsection{加工1名称}
-<Use natural language, Decision table/Decision tree and Pseudocode to describe how to process the data flow>
+\subsubsection{验证信息合法性}
+输入:用户名密码
 
-采用自然语言，判断表/判断树，伪码的形式描述对数据流进行处理的过程
+输出:登录/注册结果
 
-\subsubsection{加工2名称}
-<Use natural language, Decision table/Decision tree and Pseudocode to describe how to process the data flow>
+操作:对于登录请求，判断用户名是否存在。对于注册请求，判断用户名是否合法、是否已经存在、密码是否过于简单。
 
-采用自然语言，判断表/判断树，伪码的形式描述对数据流进行处理的过程
+\subsubsection{计算密码散列值}
+输入:用户名密码
+
+输出:用户名和密码的散列值
+
+操作:使用sha256散列值算法，通过密码(原文)，用户名和随机数计算密码的散列值。
+
+\subsubsection{权限控制}
+输入:管理云端文件系统的指令
+
+输出:返回结果(是否成功)
+
+操作:根据用户的身份信息和文件类型，判断用户是否有权限及该指令是否合法
