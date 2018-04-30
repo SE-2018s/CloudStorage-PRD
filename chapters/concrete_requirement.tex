@@ -129,7 +129,7 @@
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.005 文件：查看文件属性}
 
 \subsubsection{介绍} 
-用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、md5值，以及是否加密等。
+用户可以查看文件属性，包括文件大小、创建时间、修改时间、上次下载时间、上次访问时间、md5值、用户权限（针对共享文件夹），以及是否加密等。
 
 \subsubsection{输入} 
 用户选中文件，再点击属性选项。
@@ -178,8 +178,27 @@
 
 
 
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.008 文件：复选}
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.008 文件：复制、粘贴、剪切}
+\subsubsection{介绍}
+
+用户可以选择多个文件、文件夹
+
+\subsubsection{输入}
+
+用户可以通过复选框和ctrl键点击、拖拽实现多选
+
+\subsubsection{处理}
+
+客户端维护一个选中文件列表，根据鼠标点击、移动行为向其中放入、移除文件
+
+\subsubsection{输出}
+
+网页将选中的文件、文件夹高亮显示
+
+
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.009 文件：复制、粘贴、剪切}
 
 \subsubsection{介绍} 
 用户可以对部分文件以及文件夹进行复制、粘贴、剪切等操作。
@@ -537,6 +556,7 @@
 \subsubsection{输出} 
 若修改成功，则显示修改成功，否则提示没有管理权限
 
+\subsection{R.XYZ.CLOUDSTORAGE.VERSION.001 版本管理：版本更新}
 
 \section{性能需求}
 
