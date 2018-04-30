@@ -2,6 +2,9 @@
 \section{功能需求}
 
 本章节描述xyz云盘系统所必须执行的基本动作，以及其输入、输出，以及中间处理的过程。
+
+% 用户相关
+
 \subsection{R.XYZ.CLOUDSTORAGE.USER.LOGIN.001 用户：显示初始登陆界面 }
 
 \subsubsection{介绍}
@@ -14,6 +17,8 @@
 生成登录窗口，包括用户名密码等窗口，其中，密码需要密码显示的保护处理。
 \subsubsection{输出}
 显示友好的登录窗口。
+
+
 
 \subsection{R.XYZ.CLOUDSTORAGE.USER.LOGIN.002 用户：密码验证 }
 
@@ -30,6 +35,8 @@
 \subsubsection{输出}
 如果密码正确，显示用户的根文件夹；如果密码错误，显示”密码错误“，以及错误次数，进行警告。如果通信异常，则显示通信异常信息。
 
+
+
 \subsection{R.XYZ.CLOUDSTORAGE.USER.LOGOUT.001 用户：退出 }
 
 \subsubsection{介绍}
@@ -45,6 +52,10 @@
 \subsubsection{输出}
 客户端被关闭。
 
+
+
+%文件基本操作
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.001 文件：上传}
 
 \subsubsection{介绍}
@@ -58,6 +69,9 @@
 
 \subsubsection{输出}
 客户端在用户第一次点击“上传”按钮时，弹出小型资源管理器。在用户第二次点击“上传”按钮之后，显示开始上传。上传时显示速度，剩余时间，进度，剩余文件大小等信息。
+
+
+
 
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.003 文件：下载}
 
@@ -74,16 +88,23 @@
 客户端在用户第一次点击“下载”按钮时，弹出小型资源管理器。在用户第二次点击“下载”按钮之后，显示开始下载。下载时显示速度，剩余时间，进度，剩余文件大小等信息。
 
 
+
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.003 文件：新建文件夹}
 
 \subsubsection{介绍}
-用户可以上传文件或文件夹
+用户在一个目录下创建新的文件夹并指定名称
 
-\subsubsection{输入}
+\subsubsection{输入} 
+用户在当前目录空白处右键点击新建文件夹，或在点击新建文件夹的功能按钮，在窗口输入名称并点击确认
 
-\subsubsection{处理}
+\subsubsection{处理} 
+客户端将新建文件夹的指令与名称打包发给服务端，服务端首先检查名字是否有效，否则提示非法名称，是则判断文件夹是否已经存在，是则创建，否则返回名称冲突的错误。
 
-\subsubsection{输出}
+\subsubsection{输出} 
+若创建成功，则刷新当前目录，否则输出错误信息
+
+
 
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.004 文件：打开文件夹}
 
@@ -102,6 +123,8 @@
 若无异常发生，用户可以看到文件夹中的文件以及子文件夹。
 
 若有异常发生，则将异常信息保存到日志中，并显示友好界面提示异常。
+
+
 
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.005 文件：查看文件属性}
 
@@ -154,6 +177,8 @@
 如果成功，则刷新当前目录，显示最新的名字。如果失败，则提示失败。
 
 
+
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.008 文件：复制、粘贴、剪切}
 
 \subsubsection{介绍} 
@@ -178,19 +203,8 @@
 如果粘贴失败，则弹窗提示粘贴失败。
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.BASIC.009 文件：新建文件夹}
 
-\subsubsection{介绍}
-用户在一个目录下创建新的文件夹并指定名称
-
-\subsubsection{输入} 
-用户在当前目录空白处右键点击新建文件夹，或在点击新建文件夹的功能按钮，在窗口输入名称并点击确认
-
-\subsubsection{处理} 
-客户端将新建文件夹的指令与名称打包发给服务端，服务端首先检查名字是否有效，否则提示非法名称，是则判断文件夹是否已经存在，是则创建，否则返回名称冲突的错误。
-
-\subsubsection{输出} 
-若创建成功，则刷新当前目录，否则输出错误信息
+%文件高级功能
 
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.001 文件：回收站}
 
@@ -221,6 +235,8 @@
 
 彻底删除：如果成功，则刷新当前文件夹，否则弹窗提醒。
 
+
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.002 文件：收藏夹}
 
 \subsubsection{介绍} 
@@ -239,6 +255,8 @@
 \subsubsection{输出}
 如果成功，并且是当前目录是收藏夹，则刷新当前目录，显示最新的名字。如果失败，则提示失败。
 
+
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
 
 \subsubsection{介绍}
@@ -254,6 +272,7 @@
 
 \subsubsection{输出} 
 如果成功，则提示加密成功。否则弹窗提示失败。
+
 
 
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.004 文件：分享}
@@ -279,6 +298,7 @@
 其他用户在导入时，如果链接无效则提示无效，否则提示成功，并刷新页面，显示该文件或文件夹的位置。
 
 
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.005 文件：分类}
 
 \subsubsection{介绍}
@@ -286,6 +306,7 @@
 
 \subsubsection{输入} 
 用户点击想要筛选的文件类型：包括文档，媒体，压缩包，可执行文件，其他文件，可多选
+
 \subsubsection{处理} 
 客户端将筛选的文件类型打包发送到服务器，服务器将当前目录的文件列表进行过滤，只发回过滤后的文件。
 
@@ -294,6 +315,7 @@
 \subsubsection{输出} 
 客户端输出新的目录列表
 
+
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.006 文件：搜索}
 
 \subsubsection{介绍}
@@ -301,6 +323,7 @@
 
 \subsubsection{输入} 
 用户在当前目录上方的搜索框输入关键字，点击搜索
+
 \subsubsection{处理} 
 客户端将当前目录与关键字打包发送到服务器，服务器对当前目录与子目录的文件、文件夹列表以及可见的共享文件夹进行匹配，返回匹配成功的列表。
 
@@ -314,11 +337,14 @@
 
 \subsubsection{输入} 
 用户不做显式的操作
+
 \subsubsection{处理} 
 服务器将当前目录的文件进行格式匹配：
 
 1. 文档，在大图标模式下，返回第一页的图片；在小图标模式下，返回对应格式的图标
+
 2. 视频：在大图标模式下，返回随机帧的秃瓢；在小图标模式下，返回对应格式的图标
+
 3. 其他文件：返回该文件附带的图标，若无则返回对应格式的图标
 
 \subsubsection{输出} 
@@ -346,7 +372,7 @@
 
 \subsubsection{介绍}
 用户可对多个选中的文件、文件夹进行在线压缩
-
+ 
 \subsubsection{输入} 
 用户在当前文件夹复选多个文件、文件夹，单机压缩功能按钮或右键选择压缩，点击确认或更改默认压缩文件名后点击确认
 
@@ -363,31 +389,44 @@
 若压缩成功，提示压缩成功并将压缩包选中
 若通信失败，则提示失败
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.010 文件：审核}
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.010 文件：举报}
 
 \subsubsection{介绍}
-对于不恰当的文件名关键字进行屏蔽
+用户可以对文件或文件夹进行举报操作，以维护健康，合法的网络环境。
 
 \subsubsection{输入} 
-用户无需做出操作。网盘运维人员定期更新关键字列表
+用户选中所要举报的文件以及文件夹，右键，选择“举报”选项。在接下来弹出的对话框中选择举报的分类。
 
 \subsubsection{处理} 
-服务器对每次目录的更新（重命名，添加文件/文件夹）进行匹配，若关键字匹配成功，则将提示修改失败
+客户端在用户点击“举报”选项之后，生成对话框，之后将用户所选择的文件以及文件夹的名字以及举报类型打包，发给服务器端。
 
+服务器接收之后记录文件名，及其md5值，并在所维护的举报库中找到相应md5，如果找到了，就增加举报次数，如果没有找到则将md5值与文件信息加入，并设置举报次数为1。
+最后服务器端返回成功信息给客户端。
+
+运维人员定期检查举报库，判断文件是否应被屏蔽。若是，则将举报库中该条文件设为已审核，屏蔽。否则，将该条文件设为已审核，放行。
 
 \subsubsection{输出} 
-若解压成功，刷新当前目录，否则输出错误信息
+客户端显示”感谢您的举报“窗口。
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.011 文件：审核}
 
 \subsubsection{介绍}
-
+对于不恰当的文件名关键字、举报库中的文件的md5值进行屏蔽
 
 \subsubsection{输入} 
+用户对网盘文件进行正常的修改操作
 
 \subsubsection{处理} 
+服务器对每次目录的更新（重命名，添加文件/文件夹）进行匹配文件名，若关键字匹配成功，则使该次修改操作失败，并返回错误信息：敏感关键字。
+
+服务器对文件的更新（上传，粘贴移动）进行md5匹配，若在举报库中匹配md5成功且该文件未屏蔽状态，则使该次操作失败，并返回错误信息：该文件已被举报。
 
 \subsubsection{输出} 
+若审核通过，则输出正常操作的结果。否则提示返回的审核信息
+
+%共享文件夹
 
 \subsection{R.XYZ.CLOUDSTORAGE.SHAREFOLDER.001 共享文件夹：创建}
 
@@ -427,7 +466,7 @@
 用户选择进入一个共享文件夹之后，操作与普通文件夹一样，但多了一个额外限制：只返回对改用户可见的文件
 
 异常：如果通信失败，则客户端重传，直到超时
-
+ 
 \subsubsection{输出} 
 若无异常发生，用户可以看到可见的共享文件夹/文件夹内的可见内容
 
@@ -435,7 +474,7 @@
 
 
 \subsection{R.XYZ.CLOUDSTORAGE.SHAREFOLDER.003 共享文件夹：权限匹配}
-
+ 
 \subsubsection{介绍}
 共享文件夹涉及到多用户合作，需要对不同用户的操作根据其权限来决定是否允许
 
@@ -498,84 +537,6 @@
 \subsubsection{输出} 
 若修改成功，则显示修改成功，否则提示没有管理权限
 
-
-
-逐条列出与本特性相关的功能需求。包括项目如何响应预期的错误输入，非法条件和无效输入。需求应该简明，完整，不含糊，可验证，必要的。 当需要的信息不确定的时候使用“待定”。
-\subsubsection{输入}
-This section consists of:
-A. Detailed description of all input data of the function, including:
-Source of input
-Quantify
-Measurement units
-Timing requirements
-Valid input range that contains the precision and tolerance
-B. Reference of interface specification or interface control document that are provided in proper place.
-
-本子段落应包含下列内容：
-
-A. 对该功能所有输入数据的详细描述，包括：
-
-		输入来源
-		数量
-		度量单位
-		时间要求
-		包含精度和容忍度的有效输入范围
-		
-B. 在适当的地方提供的对接口规格或接口控制文档的参考。
-\subsubsection{处理}
-Describes all the operations on the input data, and the process to get the output data, including the following specifications:
-A. Verification of input data
-B. Exact order of the operations, including the time sequene of each event.
-C. Response to exception, such as:
-		 Overflow
-		Communication failure
-		Error process
-D. Any method used to transfer the input data to the output data. (such as equation,mathematic algorithm and logical operation)
-For example.
-		The formula to calculate the income tax in a pay roll.
-		the weather model used for weather forecast
-E. Verification of output data.
-本子段落应描述对输入数据所执行的所有操作和如何获得输出的过程。这包括下列规格：
-
-A. 输入数据的有效性检测。
-
-B. 操作的确切次序，包括各事件的时序。
-
-C. 对异常情况的回应，例如：
-		溢出
-		通信失败
-		错误处理
-D. 用于把系统输入转换到相应输出的任何方法（诸如方程式，数学算法，逻辑操作）。例如，这可能描述下列方面：
-		对工资单里代扣所得税的计算公式。
-		用于气象预报的气象模型。
-		
-E.	对输出数据的有效性检测。
-\subsubsection{输出}
-This section should include:
-A. The detailed description of output data of the function, including:
-		Target to output to (Such as a printer or a file)
-		Quantity
-		Measurement units
-		Time sequence
-		Valid output range including the precision and tolerance
-		Process of the invalid value.
-		Error message.
-B. Reference of interface specification or interface control document that are provided in proper place.
-For the systems with their requirements focused on the input/output actions, all the important input/output actions and the time sequences of the input/output pairs should be described in the SRS. In a system that inputs and actions are memorized as the basis for the reactions to be taken, the timing sequence for the input/output pairs must be available here. This kind of functional action is similar to a status machine.  
-本子段落应包含：
-
-A. 对该功能所有输出数据的详细描述，这个描述包括：
-		输出的到何处（如打印机，文件）
-		数量
-		度量单位
-		时序
-		包含精确度和容忍度的有效输出范围
-		对非法值的处理
-		错误消息
-		
-B. 在适当的地方提供对接口规格或接口控制文档的参考。
-
-此外，对那些需求集中在输入/输出行为的系统，SRS应描述所有重要的输入/输出行为及输入输出对的次序。对一个需要记忆其行为以根据输入和过去的行为进行反应的系统，输入输出对的次序是要求的；这种功能行为就类似于有限状态机。
 
 \section{性能需求}
 
