@@ -10,41 +10,40 @@
 
 \subsection{产品环境介绍}
 
-描述的是本产品与其它产品或项目所组成的整体环境。
-
-1.如果本产品是独立的并完全自我包含，在此说明这一点。
-
-2.如果SRS定义的产品是更大的系统或项目的组件（此种情形经常发生），那么应：
-
-	A. 描述此大系统或项目每个组件的功能，并且标识接口。
-
-	B.  确定本软件产品主要外部接口。（ 注意：在此部分并不进行这些接口的详细描述；对这些接口的详细描述在SRS的其它 部分提供。）
-    
-    C. 描述相关产品硬件和所使用的外部设备。（  注意：  这只是概述性描述。）
-
-通过方块图来描述大系统或项目的主要组件，互连性以及外部接口将是非常有帮助的。本部分不应提出一个具体的设计解决方案或对解决方案的具体设计约束（具体设计约束将在具体需求章节中描述）。本部分内容是产生设计约束的基础。
-
+\begin{itemize}
+	\item 本产品分为服务器端和客户端。服务器端作为后台运行程序，处理来自客户端的请求，进行数据存储，管理等；客户端作为客户发起请求。
+	\item 服务器端需要用到MySQL，Ceph文件系统的接口；客户端和服务器端都需要HTTP/HTTPS协议支持。
+	\item 服务器和客户端需要通信，双方都需要网络接口的支持。
+\end{itemize}
 \section{软件功能}
-Summarizes the major functions that must be implemented through the software, and the functions to be implemented through user operation. Details will be provided in the Specific Requirement, so only a summary (such as a directory list) is needed here. The functions should be organized to make them understandable to the readers, and be appropriate for subsequent design and tests. Diagrams like top-level data flow diagram or object class diagram are recommended to illustrate the relationships among the major requirement groups 
 
-Sometimes, this section can directly refer to the superior specification of the software that allocate the specific requirements to this software ( if existed ).
-The specific requirements should not be described in this section. But this section is the basis of the specific requirements.
+\subsection{普通用户}
+\begin{itemize}
+	\item 用户登录
+	\item 编辑个人信息
+	\item 上传文件资源
+	\item 管理云端文件系统
+	\item 发布资源链接
+	\item 分享资源链接
+	\item 下载资源
+\end{itemize}
 
-概述软件的必须实现的和通过用户操作实现的主要功能。这里只需要进行简要描述（例如目录列表），详细描述在详细需求部分描述。对需求功能进行组织，以便于读者理解，并能指导后续的设计和测试。可以用图表来表示主要需求群组之间的关系，例如：高层的数据流图，面向对象的分析等。
-
-有时此部分所要求的功能概述可以从分配具体功能给此软件产品的更高层规格（如果存在的话）直接引用。
-
-本节不应描述具体需求。但本节内容是具体需求章节的基础。
+\subsection{游客}
+\begin{itemize}
+	\item 分享资源链接
+	\item 下载资源
+\end{itemize}
 
 \section{用户特征}
-List down the basic required characteristics of the user or operator of the system. E.g. the experience, Skill level, required role etc., 
-This part should not describe the specific requirements, instead, it provides the basis for the specific requirements.
-
-列出对用户或系统操作者的要求，如：经验，能力，角色等。
-
-本节不应描述具体需求。但本节内容是具体需求章节的基础。
+\begin{itemize}
+	\item 开发者与维护人员：具有相关的计算机专业知识，可以熟练地使用数据库，管理文件系统，并高效地解决软件异常。
+	\item 普通用户：具备基本的浏览网页能力，认识中文并可以根据帮助理解基本的操作，可以操作图形界面。
+	\item 游客：具备基本的浏览网页能力，明白如何下载链接，分享链接。
+\end{itemize}
 
 \section{假设和依赖关系}
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan). 
-
-列出可能影响SRS中需求的所有的假设因素（与已知事实相对而言），包括准备使用的第三方或商业组件，操作和开发环境的问题约束等。如果上述假设不正确、没有被告知或者改变了都将对项目产生影响。列出项目对外部条件的依赖，例如重用其他项目的模块等。如果在其他文档（例如项目计划或范围文档等）里已经描述了，在这里可以不用描述。
+\begin{itemize}
+	\item 本产品客户端依赖于Windows/Linux/macOS等桌面操作系统或者移动平台操作系统，及各平台下的浏览器。
+	\item 本产品服务器端依赖于MySQL数据库，Debian Linux操作系统，Java语言及相关库。
+	\item 本产品通信依赖于HTTP/HTTPS协议。
+\end{itemize}
