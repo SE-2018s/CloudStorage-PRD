@@ -307,7 +307,7 @@
 \subsubsection{输出} 
 客户端像进入一个新的文件夹一样显示搜索结果
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.005 文件：预览}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.007 文件：预览}
 
 \subsubsection{介绍}
 对当前目录的每个文件夹、文件，其图标是其预览图或指定格式的图标
@@ -325,7 +325,7 @@
 显示文件列表时显示对应的图标或预览
 
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.005 文件：在线解压}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.008 文件：在线解压}
 
 \subsubsection{介绍}
 压缩文件可以进行在线解压操作
@@ -342,7 +342,7 @@
 \subsubsection{输出} 
 若解压成功，刷新当前目录，否则输出错误信息
 
-\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.006 文件：在线压缩}
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.009 文件：在线压缩}
 
 \subsubsection{介绍}
 用户可对多个选中的文件、文件夹进行在线压缩
@@ -362,6 +362,21 @@
 \subsubsection{输出} 
 若压缩成功，提示压缩成功并将压缩包选中
 若通信失败，则提示失败
+
+\subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.010 文件：审核}
+
+\subsubsection{介绍}
+对于不恰当的文件名关键字进行屏蔽
+
+\subsubsection{输入} 
+用户无需做出操作。网盘运维人员定期更新关键字列表
+
+\subsubsection{处理} 
+服务器对每次目录的更新（重命名，添加文件/文件夹）进行匹配，若关键字匹配成功，则将提示修改失败
+
+
+\subsubsection{输出} 
+若解压成功，刷新当前目录，否则输出错误信息
 
 \subsection{R.XYZ.CLOUDSTORAGE.FILE.HIGH.003 文件：加密}
 
