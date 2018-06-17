@@ -1,6 +1,9 @@
 \chapter{依赖关系}
 
+{
+
 \begin{table}[htbp]
+\color{red}
 \centering
 \caption{功能需求的依赖关系表} \label{tab:simpletable}
 \begin{tabular}{|c|c|c|}
@@ -15,13 +18,23 @@
     \hline
     R..USER.LOGIN.005 & R..USER.LOGIN.002 & 用户登录之后才可以退出 \\
     \hline
+    R..USER.MEMBERSHIP.001 & R.USER.LOGIN.002 & 用户登陆后在可以开通会员 \\
+    \hline
+    R..USER.MEMBERSHIP.002 & R.USER.MEMBERSHIP.001 & 用户开通会员后才可以续费 \\
+    \hline
+    R..USER.MEMBERSHIP.003 & R.USER.MEMBERSHIP.001 & 用户消费后才可以有优惠活动 \\
+    \hline
     R..FILE & R..USER.LOGIN.002 & 所有的文件操作（除了游客\\ &  &操作之外）都需要用户登录 \\ 
     \hline
     R..SHAREFOLDER & R..USER.LOGIN.002 & 所有的共享文件夹操作（除了\\ &  &游客操作之外）都需要用户登录\\
     \hline
+    R..USER.SOCIAL.002 & R..USER.SOCIAL.001 & 用户在搜索用户信息后在可添加好友 \\
+    \hline
     R..FILE.BASIC.002 & R..FILE.BASIC.001 & 用户下载之前该文件/文件夹要被上传 \\
     \hline
-    R..FILE.BASIC.002 & R..FILE.BASIC.004 & 或者用户下载之前该文件/文件夹要被分享 \\
+    R..FILE.BASIC.012 & R..FILE.BASIC.001 & 用户加速上传时需先开始上传文件 \\
+    \hline
+    R..FILE.BASIC.012 & R..FILE.BASIC.002 & 用户加速下载时需先开始下载文件 \\
     \hline
     R..FILE & R..FILE.HIGH.003 & 对于加密的文件或文件夹，\\ &  & 用户操作之前还要输入密码进行确认\\
     \hline
@@ -31,7 +44,7 @@
 \end{tabular}
 \note{表中的R..XXX等均指R.XYZ.CLOUDSTORAGE.XXX}
 \end{table} 
-
+}
 
 \begin{table}[htbp]
 \centering
